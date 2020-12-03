@@ -24,25 +24,13 @@ float boxWidth, float boxHeight, float density, float friction, float restitutio
 
 Rigidbody::~Rigidbody()
 {
-    //delete fixture;
-    //world->DestroyBody(body);
     fixture->SetSensor(true);
     body->SetUserData(nullptr);
-    //std::cout << "delete body" << std::endl;
-    /*body->DestroyFixture(fixture);
-    body->SetUserData(nullptr);
-    world->DestroyBody(body);*/
-    /*fixture = nullptr;
-    polygonShape = nullptr;
-    fixtureDef = nullptr;
-    bodyDef = nullptr;
-    body = nullptr;*/
-    //body->DestroyFixture(fixture);
-    //world->DestroyBody(body);
-    //delete this;
-    //delete fixtureDef;
-    //delete polygonShape;
-    //delete bodyDef;
+}
+
+void Rigidbody::SetSensor(bool status)
+{
+    fixture->SetSensor(status);
 }
 
 b2Body* Rigidbody::GetBody() const
@@ -55,7 +43,3 @@ void Rigidbody::SetUserData(void* userData)
     body->SetUserData(userData);
 }
 
-void Rigidbody::SetSensor(bool status)
-{
-    fixture->SetSensor(status);
-}
